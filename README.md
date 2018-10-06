@@ -1,5 +1,7 @@
 # Nodemaster
 
+MYCE
+
 The **Nodemaster** scripts is a collection of utilities to manage, setup and update masternode instances.
 
 I am quite confident this is the single best and almost effortless way to setup different crypto masternodes, without bothering too much about the setup part.

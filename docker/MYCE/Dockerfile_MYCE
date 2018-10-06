@@ -1,30 +1,30 @@
 #
-# Dockerfile for a PIVX masternode
-# usage: docker run marsmensch/masternode-pivx:latest
+# Dockerfile for a myce masternode
+# usage: docker run marsmensch/masternode-myce:latest
 # 
 # how to work with the container
 # 
 # 1) build the container (checkout desired git revision first)
-# docker build -t "marsmensch/masternode-pivx:latest" -f docker/Dockerfile_PIVX .
+# docker build -t "marsmensch/masternode-myce:latest" -f docker/Dockerfile_myce .
 #
 # 2) start the container
-# docker run -p ${NODE_PORT}:${NODE_PORT} $(PWD)/config/pivx/pivxd.conf:/opt/data "marsmensch/masternode-pivx:latest"
+# docker run -p ${NODE_PORT}:${NODE_PORT} $(PWD)/config/myce/myced.conf:/opt/data "marsmensch/masternode-myce:latest"
 # 
 # 3) start the container interactively 
-# docker run --interactive --tty --entrypoint=/bin/bash "marsmensch/masternode-pivx:latest"
+# docker run --interactive --tty --entrypoint=/bin/bash "marsmensch/masternode-myce:latest"
 #
 # 4) standard help
-# docker run -v $(PWD)/config/pivx:/opt/data "marsmensch/masternode-pivx:latest"
+# docker run -v $(PWD)/config/myce:/opt/data "myceworld/masternode-myce:latest"
 
 FROM                 ubuntu:xenial
-MAINTAINER 			 Florian Maier <contact@marsmenschen.com>
+MAINTAINER 			 Sunil Jimenez <sunil@myce.world>
 
 ENV CONTAINER_USER   masternode
-ENV PROJECT          pivx
-ENV GIT_URL          git://github.com/PIVX-Project/PIVX.git
-ENV SVC_VERSION      tags/v2.2.1
+ENV PROJECT          myce
+ENV GIT_URL          git://github.com/myceworld/myce.git
+ENV SVC_VERSION      master
 ENV HOME_DIR         /usr/local/bin
-ENV NODE_PORT        51472
+ENV NODE_PORT        23511
 ENV REFRESHED_AT     2017-07-25
 
 # add unprivileged user
@@ -84,4 +84,4 @@ USER ${CONTAINER_USER}
 WORKDIR ${HOME_DIR}
 
 # start command
-CMD ["/usr/local/bin/pivxd", "--help"]
+CMD ["/usr/local/bin/myced", "--help"]
